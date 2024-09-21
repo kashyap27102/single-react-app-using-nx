@@ -30,5 +30,6 @@
         "typecheckTargetName": "vite:typecheck"
       }
     }
-  ]
+  ],
+  "nxCloudId": "66ee789952711b1f74cb8169"
 }
