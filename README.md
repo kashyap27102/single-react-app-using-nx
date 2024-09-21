@@ -1,50 +1,38 @@
-# React + TypeScript + Vite
+# Building a Single React App with Nx
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+We're going to start with a default React application and progressively add the core of Nx
 
-Currently, two official plugins are available:
+## Creating a new React App
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Create a new React application that uses Vite with the following command:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```sh
+npm create vite react-app -- --template=react-ts
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Once you have run npm install, set up Git with the following commands:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```sh
+git init
+git add .
+git commit -m "initial commit"
 ```
+
+## Add Nx
+
+To enable Nx in your repository, run a single command:
+
+```sh
+npx nx@latest init
+```
+
+Second, the script asks a series of questions to help set up caching for you.
+
+- Which scripts are cacheable? - Choose build and lint
+- Does the "build" script create any outputs? - Enter dist
+- Does the "lint" script create any outputs? - Enter nothing
+- Would you like remote caching to make your build faster? - Choose Skip for now
+
+We'll enable Nx Cloud and set up remote caching later in the tutorial.
+
+Checkout this link: [click Here](https://nx.dev/getting-started/tutorials/react-standalone-tutorial#creating-a-new-react-app)
