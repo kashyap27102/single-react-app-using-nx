@@ -1,11 +1,17 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "targetDefaults": {
+    "typecheck": {
+      "cache": true
+    },
     "build": {
       "outputs": [
         "{projectRoot}/dist"
       ],
-      "cache": true
+      "cache": true,
+      "dependsOn": [
+        "typecheck"
+      ]
     },
     "lint": {
       "cache": true
